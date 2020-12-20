@@ -271,14 +271,14 @@ app.post('/trends', (request, response) => {
                 //In questo caso è un retweet (con media)
                 if (tweets[i].retweeted_status != undefined) {
                     tweet_JSON['tweet'].push({
-                        "profile_image_url"     : tweets[i].user.profile_image_url,
+                        "profile_image_url"     : tweets[i].user.profile_image_url_https,
                         "name"                  : tweets[i].user.name,
                         "screen_name"           : tweets[i].user.screen_name,
                         "created_at"            : tweets[i].created_at,
                         "text"                  : tweets[i].full_text,
                         "retweet_text"          : tweets[i].retweeted_status.full_text,
                         "retweet_screen_name"   : tweets[i].retweeted_status.user.screen_name,
-                        "media_url"             : tweets[i].entities.media[0].media_url,
+                        "media_url"             : tweets[i].entities.media[0].media_url_https,
                         "retweet_count"         : tweets[i].retweet_count,
                         "favorite_count"        : tweets[i].favorite_count
 
@@ -287,14 +287,14 @@ app.post('/trends', (request, response) => {
                 //In questo caso non è un retweet (con media)
                 else {
                     tweet_JSON['tweet'].push({
-                        "profile_image_url" : tweets[i].user.profile_image_url,
+                        "profile_image_url" : tweets[i].user.profile_image_url_https,
                         "name"              : tweets[i].user.name,
                         "screen_name"       : tweets[i].user.screen_name,
                         "created_at"        : tweets[i].created_at,
                         "text"              : tweets[i].full_text,
                         //"retweet_text": tweets[i].retweeted_status.full_text,
                         //"retweet_screen_name": tweets[i].retweeted_status.user.screen_name,
-                        "media_url"         : tweets[i].entities.media[0].media_url,
+                        "media_url"         : tweets[i].entities.media[0].media_url_https,
                         "retweet_count"     : tweets[i].retweet_count,
                         "favorite_count"    : tweets[i].favorite_count
                     });
@@ -306,7 +306,7 @@ app.post('/trends', (request, response) => {
                 //In questo caso è un retweet (senza media)
                 if (tweets[i].retweeted_status != undefined) {
                     tweet_JSON['tweet'].push({
-                        "profile_image_url"     : tweets[i].user.profile_image_url,
+                        "profile_image_url"     : tweets[i].user.profile_image_url_https,
                         "name"                  : tweets[i].user.name,
                         "screen_name"           : tweets[i].user.screen_name,
                         "created_at"            : tweets[i].created_at,
@@ -321,7 +321,7 @@ app.post('/trends', (request, response) => {
                 //In questo caso non è un retweet (senza media)
                 else {
                     tweet_JSON['tweet'].push({
-                        "profile_image_url" : tweets[i].user.profile_image_url,
+                        "profile_image_url" : tweets[i].user.profile_image_url_https,
                         "name"              : tweets[i].user.name,
                         "screen_name"       : tweets[i].user.screen_name,
                         "created_at"        : tweets[i].created_at,
