@@ -6,7 +6,7 @@ const app = express();
 
 const port = process.env.PORT || 3000
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log(`Sono in ascolto sulla porta ${port}...`)
     console.log("");
 });
