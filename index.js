@@ -24,7 +24,7 @@ var classifier = bayes();
 
 //Setup the Twitter API - twit
 var Twit = require('twit');
-var config = require('./config');
+var config = require('./config/config');
 const { request, response } = require('express');
 var T = new Twit(config);
 
