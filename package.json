@@ -1,0 +1,26 @@
+{
+  "name": "bluetrends",
+  "version": "1.0.0",
+  "description": "This is the bluetrends app ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "example",
+    "blue",
+    "trends",
+    "twitter"
+  ],
+  "author": "Gionata Forello",
+  "license": "MIT",
+  "dependencies": {
+    "bayes": "^1.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nedb": "^1.8.0",
+    "node-fetch": "^2.6.1",
+    "twit": "^2.2.11"
+  }
+}

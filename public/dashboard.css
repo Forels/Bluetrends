@@ -1,0 +1,253 @@
+html, body{overflow-x: hidden!important}
+
+body {
+  font-size: .875rem;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  background: #F5F8FA !important;
+  top: 0;
+  /* rtl:raw:
+  right: 0;
+  */
+  bottom: 0;
+  /* rtl:remove */
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+#sidebarMenu {
+  padding: 0 !important;
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.trend-counter, .trend-volume{padding: 0 1rem;}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+  padding: 0 1rem;
+}
+
+.sidebar .nav-item {
+  padding-bottom: .5rem;
+}
+
+.nav-item:hover{
+  background-color: #E1E8ED;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #727272;
+}
+
+.sidebar .nav-link.active {
+  color: rgba(29,161,242,1.00);
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, .25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar-light .navbar-toggler {
+  top: .25rem;
+  right: 1rem;
+}
+
+.nav-item {
+  border-bottom: 1px solid rgb(235, 238, 240);
+}
+
+.trend-span { color: #0f1419; font-weight: 700;}
+
+
+
+/* list-group tweets*/
+
+.trend-title {
+  font-weight: 700;
+}
+
+.list-group-item {padding-top: 10px; padding-bottom: 10px;}
+
+#container-tweets {
+  border-radius: 16px;
+  border-color: rgb(235, 238, 240) !important;
+}
+#container-tweets a{
+  border-color: rgb(235, 238, 240) !important;
+}
+
+.tweet-container {display: flex; justify-content: space-between;}
+
+.tweet-container-sx {margin-right: 5px; flex-basis: 15%;}
+.user-image img {border-radius: 50%;}
+
+.tweet-container-dx {flex-basis: 85%;}
+
+.user-name, .user-screen-name, .created-at {padding-right: 4px;}
+
+.user-name span {font-size: 15px; font-weight: bold; color: #0f1419}
+.user-screen-name span, .created-at span {font-size: 15px; color: rgb(91, 112, 131);}
+
+.tweet p {font-size: 15px; margin-top: 0px; margin-bottom: 0px; color: rgb(15, 20, 25);}
+
+.tweet-image {margin-top: 10px; height: 285px;}
+.tweet-image img{width: 100%; height: 100%;  object-fit: cover; border-radius: 16px;}
+
+.row-counter {
+  padding-top: 12px;
+}
+
+.span-like, .span-heart {
+  padding: 0 10px;
+}
+
+/* Colonna di analisi */
+
+#addestramento-semplice, #addestramento-guidato, #addestramento-automatico {
+  border-color: rgb(235, 238, 240);
+}
+
+#sempliceDataList, #form-g{
+  border-color: rgb(235, 238, 240);
+
+}
+
+.btn-train {
+  background-color:#1DA1F2; 
+  border-color:#1DA1F2;
+  border-radius: 9999px;
+}
+.btn-train:hover {
+  color:#fff;
+  background-color: #0d8bd9; 
+  border-color:#0d8bd9
+}
+.btn-check:focus+.btn-train, .btn-train:focus {
+  box-shadow: 0 0 0 0.25rem #1DA1F2;
+
+}
+
+/* Card collassabili */
+.card {
+  border-radius: 15px;
+}
+
+.card-addestramento-semplice, .card-addestramento-guidato, .card-addestramento-automatico {
+  background-color: #F5F8FA;
+  border: none;
+  margin-bottom: 16px;
+}
+
+/*
+.col-btn {
+  padding-left: 0px;
+  padding-right: 96px;
+}
+*/
+
+.btn-conferma {
+  padding: 6px 6px; 
+  background-color:#1DA1F2;
+  border: none;
+}
+
+
+/* SMARTPHONE */
+@media (max-width: 768px){
+  #colonna-analisi{
+    padding-top: 12px;
+  }
+
+
+}
+
+/* Modal */
+
+.modal-content {
+  border-radius: 16px;
+  border: 1px solid rgb(235, 238, 240) !important;
+}
+
+
+
+/* Pagina vocabolario */
+.btn-vocabolario {
+  border-radius: 16px !important;
+  background-color: #1DA1F2 !important;
+  color: #FFFFFF !important;
+  font-weight: 700;
+}
+
+.btn-vocabolario:not(.collapsed)::after {
+  background-image: url(/assets/img/arrow.svg);
+
+}
+
+.btn-vocabolario::after {
+  background-image: url(/assets/img/arrow.svg);
+}
+
+.accordion-vocabolario {
+  border-bottom-left-radius: 16px !important;
+  border-bottom-right-radius: 16px !important;
+  background-color: #F5F8FA !important;
+}
+
+.accordion-body-vocabolario {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  padding-bottom: 16px;
+}
+
+.item-vocabolario {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-color: rgb(235, 238, 240) !important;
+  background-color: #F5F8FA;
+}
+
+.item-vocabolario:last-child {
+  border-bottom: 0;
+}

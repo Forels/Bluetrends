@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/png" href="/assets/img/favicon-bluetrends.ico">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="https://kit.fontawesome.com/5f1d8c5c0a.js" crossorigin="anonymous"></script>
+
+
+
+  <!-- Custom styles for this template -->
+  <link href="dashboard.css" rel="stylesheet">
+  <!-- Script javascript -->
+  <script src="client.js"> </script>
+
+  <title>Bluetrends</title>
+
+</head>
+
+<body>
+
+  <!-- Header: sezione superiore con logo -->
+<header class="navbar navbar-light bg-light sticky-top flex-md-nowrap p-0 shadow-sm" id="barra-intestazione">
+    <a class="navbar-brand col-lg-2 px-3" href="index.html" style="background-color: rgba(29,161,242,1.00); color: #fff;"> <strongclass="fs-6">Bluetrends</strong> </a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation" onclick="chiusuraSidebar()"> 
+    <span class="navbar-toggler-icon"></span>
+    </button>
+  </header>
+
+  <!-- Applicazione principale -->
+  <div class="container-fluid">
+
+    <div class="row">
+
+      <!-- Sidebar: sezione laterale contenente tutti i tweets -->
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3"> 
+          <ul class="nav flex-column" id="sidebar-trends">
+            
+            <!-- Item elenco side bar: contiene un trend
+            <li class="nav-item">
+            <div class="trend-counter">
+            <span class="trend-counter_span">1 - Di tendenza</span>
+            </div>
+            <a class="nav-link">
+            <div class="trend" id="1">
+            <span class="trend-span">#17dicembre</span>
+            </div>
+            </a>
+            <div class="trend-volume">
+            <span class="trend-volume-span"></span>
+            </div>
+            </li>
+            -->
+           
+
+
+
+
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Sezione centrale: contiene intestazione, colonna tweets e colonna analisi -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+        <!-- Intestazione: Benvenuto in bluetrends -->
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" id="intestazione">
+          <h2 class="h2">Benvenuto in Bluetrends</h2>
+          
+        </div>
+
+        <!-- Sezione centrale: contiene colonna tweets e colonna analisi -->
+        <div class="row">
+          <!-- Colonna tweet -->
+          <div class="col-sm">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"> <h4 class="h4" id="intestazione-trend"></h4></div>
+            <ul class="list-group" id="container-tweets">
+            </ul>
+          </div> 
+          <!-- Chiusura colonna tweet -->
+
+          <!-- Colonna analisi  -->
+          <div class="col-sm" id="colonna-analisi">
+
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3" id="intestazione-analisi"> <h4 class="h4">Analizza ora i tweet che più ti interessano</h4></div>
+
+
+            <!-- Descrizione Bluetrends -->
+            <div class="row gy-5">
+              <div class="col-sm">
+                <p>Bluetrends è uno strumento di classificazione di testi in grado di essere addestrato.
+                  <br>
+                  Consulta la seguente <a href="dictionary.html">pagina</a> per sapere cosa Bluetrends sia già in
+                  grado di fare.
+                  <br>
+                  Seleziona uno degli <strong>#hasthtag</strong> attualmente in tendenza in Italia nella sezione
+                  laterale,
+                  successivamente potrai scegliere quale tweet analizzare!
+                  <br>
+                  Ora seleziona una modalità di funzionamento.
+
+                  
+                </p>
+                
+
+              </div>
+             </div>
+
+            <!-- Addestramento semplice -->
+            <div class="row gy-5">
+              <div class="col">
+                <p>
+                  <button class="btn btn-primary btn-train" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSemplice" aria-expanded="false" aria-controls="collapseSemplice"> Addestramento semplice</button>
+                </p>
+
+                <!-- Scheda addestramento semplice -->
+                <p>
+                  <div class="collapse" id="collapseSemplice">
+                    <div class="card card-body" id="addestramento-semplice">
+                      <div class="row">
+                        <div class="col-10"><h3>Addestramento semplice</h3></div>
+                        <div class="col align-self-center text-end"><button class="btn-close" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSemplice" aria-label="Close" aria-controls="collapseSemplice"></button></div>
+                      </div>
+                      <p>Scegli il tweet che più ti interessa e seleziona una categoria che secondo te più si addice
+                        tra quelle proposte o digitane una totalmente nuova.</p>
+                      <br>
+
+                      <!-- Form e bottone di conferma -->
+                      <div class="row" id="form-label-s">
+
+                        <div class="col-8">
+                          <label for="sempliceDataList" class="form-label">Cerca tre le categorie o creane una nuova!</label>
+                          <input class="form-control" list="datalistOptions" id="sempliceDataList" placeholder="Scrivi per cercare...">
+                          <datalist id="datalistOptions">
+                            <!-- <option value="..."></option> -->
+                          </datalist>
+                        </div>
+
+                        <div class="col align-self-end text-end col-btn">
+                          <!-- data-bs-toggle="modal" data-bs-target="#sempliceModal" -->
+                          <button type="button" class="btn btn-primary btn-conferma"  onclick="categoriaSemplice()">Conferma</button>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="sempliceModal" tabindex="-1" aria-labelledby="sempliceModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="sempliceModalLabel">Addestramento Semplice</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <p id="modal-addestramento"> </p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="insegnaCategoria()">Conferma</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </p>
+              </div>
+            </div> 
+            
+
+            <!--Addestramento guidato-->
+            <div class="row g-5">
+              <div class="col">
+                <p>
+                  <button class="btn btn-primary btn-train" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGuidato" aria-expanded="false" aria-controls="collapseGuidato">Addestramento guidato</button>
+                </p>
+
+                <p>
+                  <!-- Scheda addestramento guidato richiudibile -->
+                  <div class="collapse" id="collapseGuidato">
+                    <div class="card card-body" id="addestramento-guidato">
+                      <div class="row">
+                        <div class="col-10"><h3>Addestramento guidato</h3></div>
+                        <div class="col align-self-center text-end"><button class="btn-close" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGuidato" aria-label="Close" aria-controls="collapseGuidato"></button></div>
+                      </div>
+            
+                      <p>Conferma la categoria proposta, o se trovi che sia poco pertinente selezionane una più corretta.
+                        <br>
+                        Se pensi che la categoria sia quella adatta allora premi direttamente il pulsante di conferma, altrimenti scegli una categoria dal menù sottostante e successivamente conferma la tua scelta!
+                      </p>
+
+                      <!-- Barra percentuale -->
+                      <p>
+                        <div class="progress" id="progress-g">
+                          <div class="progress-bar" id="progress-bar-g" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </p>
+
+                      <div class="row">
+
+                        <!-- Menù a tendina per cambiare la categoria -->
+                        <div class="col-8">
+                          <select class="form-select" id="form-g" aria-label="Default select example" onchange="selezionaCategoria();">
+                            <option selected value=null>Sostituisci con una di queste categorie</option>
+                            <!-- <option value="categoria">...</option> -->
+                          </select>
+                        </div>
+
+                        <!-- Tasto per confermare la categoria -->
+                        <div class="col align-self-center text-end">
+                          <!-- data-bs-toggle="modal" data-bs-target="#guidatoModal" -->
+                          <button type="button" class="btn btn-primary btn-conferma" onclick="categoriaGuidato()">Conferma</button>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="guidatoModal" tabindex="-1" aria-labelledby="guidatoModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="guidatoModalLabel2">Addestramento guidato</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+
+                                <script>
+                                  
+                                </script>
+                                <p id="modal-addestramento-guidato"> </p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="inviaCategoriaGuidato()">Conferma</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </p>
+              </div>
+            </div>
+
+            <!--Addestramento automatico-->
+            <div class="row gy-5">
+              <div class="col">
+                <p>
+                  <button class="btn btn-primary btn-train" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAutomatico" aria-expanded="false" aria-controls="collapseAutomatico">Addestramento automatico</button>
+                </p>
+
+                <!-- Scheda addestramento automatico richiudibile -->
+                <p>
+                  <div class="collapse" id="collapseAutomatico">
+                    <div class="card card-body" id="addestramento-automatico">
+                      <div class="row">
+                        <div class="col-10"><h3>Addestramento Automatico</h3></div>
+                        <div class="col align-self-center text-end"><button class="btn-close" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAutomatico" aria-label="Close" aria-controls="collapseAutomatico"></button></div>
+                      </div>
+                      <p>Il tweet viene automaticamente associato ad una categoria.</p>
+
+                      <div class="progress" id="progress-a">
+                        <div class="progress-bar" id="progress-bar-a" role="progressbar" style="width: 0%"
+                          aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+
+                    </div>
+                  </div>
+                </p>
+              </div>
+            </div>
+          </div> 
+          <!-- Chiusura colonna analisi -->
+
+        </div> 
+        <!-- Chiusura Sezione centrale: contiene colonna tweets e colonna analisi -->
+        
+      </main>
+      <!-- Chiusura Sezione centrale: contiene intestazione, colonna tweets e colonna analisi -->
+
+    </div>
+    <!-- Chisura Row Applicazione principale -->
+
+  </div>
+  <!-- Chiusura Applicazione principale -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+    
+</body>
+
+</html>

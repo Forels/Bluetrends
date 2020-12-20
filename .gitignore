@@ -1,0 +1,6 @@
+config.js
+.env
+node_modules/
+database.db
+parole/
+twitterapp.txt
