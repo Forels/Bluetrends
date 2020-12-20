@@ -219,7 +219,7 @@ async function riceviTweets(trendSelezionato) {
             
             //Funzione per essere reindirizzati alla colonna di analisi quando si preme un tweet
             var ww = $(window).width();
-            //Su desktop l'utente viene reindirizzato alla barra di intestazione
+            //Su desktop l'utente viene reindirizzato alla barra di intestazionegit 
             if (ww > 768){
                 var elemento = document.querySelector("#barra-intestazione");
                 elemento.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
