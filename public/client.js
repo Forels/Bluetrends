@@ -222,12 +222,12 @@ async function riceviTweets(trendSelezionato) {
             //Su desktop l'utente viene reindirizzato alla barra di intestazione
             if (ww > 768){
                 var elemento = document.querySelector("#barra-intestazione");
-                elemento.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+                elemento.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
             }
             //Su smartphone l'utente viene reindirizzato alla colonna di analisi
             if (ww < 768){
                 var elemento = document.querySelector("#colonna-analisi");
-                elemento.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+                elemento.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
             }    
 
             inviaTweetSelezionato(tweetSelezionato);
