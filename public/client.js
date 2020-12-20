@@ -93,7 +93,7 @@ async function getTrends() {
 
             //Cliccando sul trend l'utente viene reinferizzato all'inizio della pagina
             var elemento = document.querySelector("#barra-intestazione");
-            elemento.scrollIntoView();
+            elemento.scrollIntoView({behavior: "smooth", block: "start"});
         
             riceviTweets(trendSelezionato);
         }
@@ -222,12 +222,12 @@ async function riceviTweets(trendSelezionato) {
             //Su desktop l'utente viene reindirizzato alla barra di intestazione
             if (ww > 768){
                 var elemento = document.querySelector("#barra-intestazione");
-                elemento.scrollIntoView();
+                elemento.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
             }
             //Su smartphone l'utente viene reindirizzato alla colonna di analisi
             if (ww < 768){
                 var elemento = document.querySelector("#colonna-analisi");
-                elemento.scrollIntoView();
+                elemento.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
             }    
 
             inviaTweetSelezionato(tweetSelezionato);
