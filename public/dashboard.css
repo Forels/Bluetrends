@@ -143,6 +143,10 @@ body {
 
 /* Colonna di analisi */
 
+.p-descrizione{
+  margin-bottom: 0px;
+}
+
 #addestramento-semplice, #addestramento-guidato, #addestramento-automatico {
   border-color: rgb(235, 238, 240);
 }
@@ -192,10 +196,15 @@ body {
 }
 
 
+
 /* SMARTPHONE */
 @media (max-width: 768px){
   #colonna-analisi{
     padding-top: 12px;
+  }
+
+  .p-descrizione{
+    margin-bottom: 6px;
   }
 
 
