@@ -367,6 +367,7 @@ app.post('/trends', (request, response) => {
 var tweetRicevuto   = null;
 var tweetAnalizzato = null
 var giudizio        = null;
+var prob  = null;
 
 app.post('/tweets', (request, response) => {
     const data = request.body;
@@ -379,15 +380,16 @@ app.post('/tweets', (request, response) => {
         //Verifica se il tweet selezionato sia un retweet
         if (tweetRicevuto.charAt(0) == "R" && tweetRicevuto.charAt(1) == "T") {
             //Se è un retweet elimina  'RT @username:' per non analizzarlo
-            var tweetAnalizzato = tweetRicevuto.substring(tweetRicevuto.indexOf(":") + 1);
-        } else { var tweetAnalizzato = tweetRicevuto; }
+            tweetAnalizzato = tweetRicevuto.substring(tweetRicevuto.indexOf(":") + 1);
+        } else { tweetAnalizzato = tweetRicevuto; }
 
+        
         giudizio = await classifier.categorize(tweetAnalizzato);
         console.log("Ho ricevuto un tweet da analizzare: " + tweetAnalizzato)
         console.log("");
         console.log("Il tweet è stato giudicato come: " + giudizio);
         console.log("");
-
+    
         //Il server risponde con il tweet analizzato e il giudizio sulla categoria
         response.json({
             status: "succces",

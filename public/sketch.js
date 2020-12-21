@@ -1,4 +1,3 @@
-
 // Il client riceve le categorie direttamente
 getVocabolario();
 

@@ -83,11 +83,12 @@ async function getTrends() {
             }
            this.getElementsByTagName('span')[1].style.color = "#1DA1F2";
 
+            creaColonnaTweets()
+
             const trend = document.createElement('span')
             trend.className = 'trend-title';
             trend.textContent = trendSelezionato;
             
-
             document.getElementById('intestazione-trend').textContent = `Hai selezionato il trend `
             document.getElementById('intestazione-trend').appendChild(trend);
 
@@ -144,6 +145,32 @@ async function getTrends() {
         i++;
     }//chiusura for trends
 }// --------------------------------------- chiusura funzione riceviTrends --------------------------------------- 
+
+
+function creaColonnaTweets() {
+
+    //Crea elemento <div class="col-sm">
+    const col_tweet = document.createElement('div');
+    col_tweet.className = 'col-sm';
+    //Crea elemento <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"> 
+    const container_intestazione = document.createElement('div');
+    container_intestazione.className = 'd-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3';
+    //Crea elemento <h4 class="h4" id="intestazione-trend"></h4>
+    const intestazione = document.createElement('h4');
+    intestazione.className = 'h4';
+    intestazione.id = 'intestazione-trend'
+    //Crea elemento <ul class="list-group" id="container-tweets">
+    const gruppo_tweet = document.createElement('ul');
+    gruppo_tweet.className = 'list-group';
+    gruppo_tweet.id = 'container-tweets';
+
+
+    container_intestazione.append(intestazione);
+    col_tweet.append(container_intestazione, gruppo_tweet);
+    document.getElementById('row-applicazione').insertBefore(col_tweet, document.getElementById('colonna-analisi'));
+  
+}
+
 
 function chiusuraSidebar(){
 
