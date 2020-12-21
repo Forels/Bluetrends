@@ -441,6 +441,8 @@ app.post('/categoryguidato', (request, response) => {
 
 });
 
+//var categorieDatabase = [];
+
 //Funzione per insegnare al classificatore tweet e categoria
 async function imparaCategoria(categoriaRicevuta, tweetAnalizzato, response) {
 
@@ -465,10 +467,23 @@ async function imparaCategoria(categoriaRicevuta, tweetAnalizzato, response) {
     }
 
     
+
+    database.find({ valore: { $exists: true } }, function (err, docs) {
+
+        var myArray = [];
+        docs.forEach(element => {
+            myArray.push(element.valore);
+        });
+        categorieDatabase = myArray.filter((v, i, a) => a.indexOf(v) === i);        
+    });     
+
+    console.log(categorieDatabase);
+    
     response.json({
         status: "succces",
         tweet: tweetAnalizzato,
-        categoria: categoriaRicevuta
+        categoria: categoriaRicevuta,
+        categorieEsistente: categorieDatabase
     });
 
 }

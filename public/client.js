@@ -149,25 +149,33 @@ async function getTrends() {
 
 function creaColonnaTweets() {
 
-    //Crea elemento <div class="col-sm">
-    const col_tweet = document.createElement('div');
-    col_tweet.className = 'col-sm';
-    //Crea elemento <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"> 
-    const container_intestazione = document.createElement('div');
-    container_intestazione.className = 'd-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3';
-    //Crea elemento <h4 class="h4" id="intestazione-trend"></h4>
-    const intestazione = document.createElement('h4');
-    intestazione.className = 'h4';
-    intestazione.id = 'intestazione-trend'
-    //Crea elemento <ul class="list-group" id="container-tweets">
-    const gruppo_tweet = document.createElement('ul');
-    gruppo_tweet.className = 'list-group';
-    gruppo_tweet.id = 'container-tweets';
+    if(document.getElementById('col-tweet') != null){
+        //Esiste già la colonna dei tweet 
+        
+    } else{
+        //Non esiste la colonna dei tweet
+
+        //Crea elemento <div class="col-sm">
+        const col_tweet = document.createElement('div');
+        col_tweet.className = 'col-sm';
+        col_tweet.id = 'col-tweet'
+        //Crea elemento <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"> 
+        const container_intestazione = document.createElement('div');
+        container_intestazione.className = 'd-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3';
+        //Crea elemento <h4 class="h4" id="intestazione-trend"></h4>
+        const intestazione = document.createElement('h4');
+        intestazione.className = 'h4';
+        intestazione.id = 'intestazione-trend'
+        //Crea elemento <ul class="list-group" id="container-tweets">
+        const gruppo_tweet = document.createElement('ul');
+        gruppo_tweet.className = 'list-group';
+        gruppo_tweet.id = 'container-tweets';
 
 
-    container_intestazione.append(intestazione);
-    col_tweet.append(container_intestazione, gruppo_tweet);
-    document.getElementById('row-applicazione').insertBefore(col_tweet, document.getElementById('colonna-analisi'));
+        container_intestazione.append(intestazione);
+        col_tweet.append(container_intestazione, gruppo_tweet);
+        document.getElementById('row-applicazione').insertBefore(col_tweet, document.getElementById('colonna-analisi'));
+    }
   
 }
 
@@ -607,7 +615,32 @@ async function inviaCategoriaSemplice(categoriaScelta, tweetAnalizzato) {
     //Response
     const response = await fetch('/categorysemplice', options);
     const rispostaInsegnamento = await response.json();
-    //console.log(rispostaInsegnamento);    
+    
+    //Il response contiene la nuova catgeoria e quelle vecchie per poterla aggiungere alle opzioni
+    //console.log(rispostaInsegnamento.categoria);   
+    //console.log(rispostaInsegnamento.categorieEsistente);   
+
+    var control = 0;
+
+    for(var i=0; i<rispostaInsegnamento.categorieEsistente.length; i++){
+        if(rispostaInsegnamento.categoria != rispostaInsegnamento.categorieEsistente[i]) {control++}
+    }
+
+    if (control === rispostaInsegnamento.categorieEsistente.length){
+        //Aggiunge le categorie conosciute nell'addestramento semplice
+        const opzione_semplice = document.createElement('option');
+        opzione_semplice.value = rispostaInsegnamento.categoria;
+        
+        document.querySelector("#datalistOptions").appendChild(opzione_semplice);
+
+        //Aggiunge le categorie conosciute nell'addestramento guidato
+        const opzione_guidato       = document.createElement('option');
+        opzione_guidato.textContent = rispostaInsegnamento.categoria;
+        opzione_guidato.value       = rispostaInsegnamento.categoria;
+        
+        document.querySelector("#form-g").appendChild(opzione_guidato);
+    }
+
 }
 
 
